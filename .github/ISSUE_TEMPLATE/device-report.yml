@@ -1,0 +1,74 @@
+name: Device report
+description: Report whether the driver works on your HP Envy device
+title: "[Device] "
+labels: ["device-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please run the commands in the [docs/reporting.md](https://github.com/acomagu/hp-envy13ay-platform-profile/blob/main/docs/reporting.md) and paste the results below.
+
+  - type: textarea
+    id: dmi
+    attributes:
+      label: DMI information
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: kernel-distro
+    attributes:
+      label: Kernel and distribution
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: module-log
+    attributes:
+      label: Module log
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: platform-profile
+    attributes:
+      label: platform_profile output
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: power-profiles-daemon
+    attributes:
+      label: power-profiles-daemon output
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: ec-values
+    attributes:
+      label: EC value results
+      description: |
+        For each profile, report the EC value at offset 0x29.
+
+        Expected mapping:
+        performance -> 00
+        balanced    -> 01
+        cool        -> 02
+        quiet       -> 03
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: behavior-notes
+    attributes:
+      label: Behavior notes
+      description: |
+        Fan behavior, temperature behavior, performance behavior, suspend/resume issues, or anything unusual.
+    validations:
+      required: false
